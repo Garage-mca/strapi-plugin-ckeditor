@@ -79,6 +79,7 @@ import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/
 
 import { StrapiMediaLib } from './plugins/strapi-medialib-plugin'
 import { StrapiUploadAdapter } from './plugins/strapi-upload-plugin/strapi-upload-adapter'
+import FootNote from './plugins/footnote/src/footnote'
 
 class Editor extends ClassicEditor {}
 
@@ -156,7 +157,8 @@ Editor.builtinPlugins = [
   StrapiMediaLib,
   BlockToolbar,
   BalloonToolbar,
-  Style
+  Style,
+  FootNote
 ]
 
 // Editor configuration.
@@ -182,6 +184,7 @@ Editor.defaultConfig = {
       'underline',
       'fontSize',
       'removeFormat',
+      'footnote',
       '|',
       'bulletedList',
       'todoList',
