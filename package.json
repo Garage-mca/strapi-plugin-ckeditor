@@ -25,8 +25,55 @@
     "strapi-admin.js",
     "strapi-server.js"
   ],
-  "dependencies": {
-    "@ckeditor/ckeditor5-react": "5.0.2"
+  "devDependencies": {
+    "@ckeditor/ckeditor5-adapter-ckfinder": "^35.1.0",
+    "@ckeditor/ckeditor5-alignment": "^35.1.0",
+    "@ckeditor/ckeditor5-autoformat": "^35.1.0",
+    "@ckeditor/ckeditor5-autosave": "^35.1.0",
+    "@ckeditor/ckeditor5-basic-styles": "^35.1.0",
+    "@ckeditor/ckeditor5-block-quote": "^35.1.0",
+    "@ckeditor/ckeditor5-cloud-services": "^35.1.0",
+    "@ckeditor/ckeditor5-code-block": "^35.1.0",
+    "@ckeditor/ckeditor5-dev-utils": "^30.4.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^30.4.0",
+    "@ckeditor/ckeditor5-editor-classic": "^35.1.0",
+    "@ckeditor/ckeditor5-essentials": "^35.1.0",
+    "@ckeditor/ckeditor5-find-and-replace": "^35.1.0",
+    "@ckeditor/ckeditor5-font": "^35.1.0",
+    "@ckeditor/ckeditor5-heading": "^35.1.0",
+    "@ckeditor/ckeditor5-highlight": "^35.1.0",
+    "@ckeditor/ckeditor5-horizontal-line": "^35.1.0",
+    "@ckeditor/ckeditor5-html-embed": "^35.1.0",
+    "@ckeditor/ckeditor5-html-support": "^35.1.0",
+    "@ckeditor/ckeditor5-image": "^35.1.0",
+    "@ckeditor/ckeditor5-indent": "^35.1.0",
+    "@ckeditor/ckeditor5-language": "^35.1.0",
+    "@ckeditor/ckeditor5-link": "^35.1.0",
+    "@ckeditor/ckeditor5-list": "^35.1.0",
+    "@ckeditor/ckeditor5-markdown-gfm": "^35.1.0",
+    "@ckeditor/ckeditor5-media-embed": "^35.1.0",
+    "@ckeditor/ckeditor5-mention": "^35.1.0",
+    "@ckeditor/ckeditor5-page-break": "^35.1.0",
+    "@ckeditor/ckeditor5-paragraph": "^35.1.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^35.1.0",
+    "@ckeditor/ckeditor5-remove-format": "^35.1.0",
+    "@ckeditor/ckeditor5-restricted-editing": "^35.1.0",
+    "@ckeditor/ckeditor5-source-editing": "^35.1.0",
+    "@ckeditor/ckeditor5-special-characters": "^35.1.0",
+    "@ckeditor/ckeditor5-style": "^35.1.0",
+    "@ckeditor/ckeditor5-table": "^35.1.0",
+    "@ckeditor/ckeditor5-theme-lark": "^35.1.0",
+    "@ckeditor/ckeditor5-typing": "^35.1.0",
+    "@ckeditor/ckeditor5-watchdog": "^35.1.0",
+    "@ckeditor/ckeditor5-word-count": "^35.1.0",
+    "css-loader": "^5.2.7",
+    "postcss": "^8.4.12",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^4.2.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "peerDependencies": {
     "@strapi/strapi": "^4.0.0"
@@ -40,11 +87,15 @@
     "url": "https://github.com/nshenderov/strapi-plugin-ckeditor.git"
   },
   "scripts": {
-    "test": "echo \"Error: no tests specified\" && exit 1"
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "build": "webpack --config ./admin/src/components/CKEditor/webpack.config.js --mode production"
   },
   "engines": {
     "node": ">=14.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@ckeditor/ckeditor5-react": "^5.0.2"
+  }
 }
