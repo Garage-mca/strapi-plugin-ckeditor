@@ -80,11 +80,13 @@ import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/
 import { StrapiMediaLib } from './plugins/strapi-medialib-plugin'
 import { StrapiUploadAdapter } from './plugins/strapi-upload-plugin/strapi-upload-adapter'
 import FootNote from './plugins/footnote/src/footnote'
+import Gallery from './plugins/gallery/gallery'
 
 class Editor extends ClassicEditor {}
 
 Editor.builtinPlugins = [
   StrapiUploadAdapter,
+  Gallery,
   Alignment,
   Autoformat,
   AutoImage,
@@ -195,6 +197,7 @@ Editor.defaultConfig = {
       'indent',
       'horizontalLine',
       '|',
+      'gallery',
       'StrapiMediaLib',
       'insertTable',
       'blockQuote',
