@@ -81,6 +81,7 @@ import { StrapiMediaLib } from './plugins/strapi-medialib-plugin'
 import { StrapiUploadAdapter } from './plugins/strapi-upload-plugin/strapi-upload-adapter'
 import FootNote from './plugins/footnote/src/footnote'
 import Gallery from './plugins/gallery/gallery'
+import FootnoteLink from './plugins/footnotelink/footnotelink'
 
 class Editor extends ClassicEditor {}
 
@@ -160,7 +161,8 @@ Editor.builtinPlugins = [
   BlockToolbar,
   BalloonToolbar,
   Style,
-  FootNote
+  FootNote,
+  FootnoteLink
 ]
 
 // Editor configuration.
@@ -187,6 +189,7 @@ Editor.defaultConfig = {
       'fontSize',
       'removeFormat',
       'footnote',
+      'footnotelink',
       '|',
       'bulletedList',
       'todoList',
