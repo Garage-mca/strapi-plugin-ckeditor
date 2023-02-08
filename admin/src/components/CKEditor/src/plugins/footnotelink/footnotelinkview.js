@@ -17,6 +17,7 @@ export default class FormView extends View {
     this.keystrokes = new KeystrokeHandler()
 
     this.footnotelinkInputView = this._createInput('Add footnotelink')
+    this.titleInputView = this._createInput('Add title')
     this.bodyInputView = this._createInput('Add body')
 
     this.saveButtonView = this._createButton('Save', icons.check, 'ck-button-save')
@@ -32,6 +33,7 @@ export default class FormView extends View {
 
     this.childViews = this.createCollection([
       this.footnotelinkInputView,
+      this.titleInputView,
       this.bodyInputView,
       this.saveButtonView,
       this.cancelButtonView

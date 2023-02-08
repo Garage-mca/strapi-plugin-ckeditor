@@ -29,7 +29,8 @@ export default class FootnoteLinkEditing extends Plugin {
         const { writer } = conversionApi
         return writer.createAttributeElement('span', {
           class: 'FootnoteLink',
-          'data-body': modelAttributeValue
+          'data-title': modelAttributeValue?.title || null,
+          'data-body': modelAttributeValue?.body
         })
       }
     })
@@ -38,16 +39,16 @@ export default class FootnoteLinkEditing extends Plugin {
     conversion.for('upcast').elementToAttribute({
       view: {
         name: 'span',
-        classes: 'FootnoteLink',
-        attributes: ['data-body']
+        classes: 'FootnoteLink'
       },
       model: {
         key: 'footnotelink',
 
         // Callback function provides access to the view element
         value: (viewElement) => {
-          const body = viewElement.getAttribute('data-body')
-          return body
+          const title = viewElement.getAttribute('data-title') || ''
+          const body = viewElement.getAttribute('data-body') || ''
+          return {title, body}
         }
       }
     })

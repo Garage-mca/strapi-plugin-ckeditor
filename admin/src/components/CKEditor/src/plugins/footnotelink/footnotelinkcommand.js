@@ -24,7 +24,8 @@ export default class FootnoteLinkCommand extends Command {
 
         this.value = {
           span: getRangeText(footnotelinkRange),
-          body: attributeValue,
+          title: attributeValue.title,
+          body: attributeValue.body,
           range: footnotelinkRange
         }
       } else {
@@ -48,7 +49,8 @@ export default class FootnoteLinkCommand extends Command {
         if (footnotelinkRange.containsRange(firstRange, true)) {
           this.value = {
             span: getRangeText(firstRange),
-            body: attributeValue,
+            title: attributeValue.title,
+            body: attributeValue.body,
             range: firstRange
           }
         } else {
@@ -63,7 +65,7 @@ export default class FootnoteLinkCommand extends Command {
     this.isEnabled = model.schema.checkAttributeInSelection(selection, 'footnotelink')
   }
 
-  execute({ span, body }) {
+  execute({ span, title, body }) {
     const model = this.editor.model
     const selection = model.document.selection
 
@@ -73,7 +75,7 @@ export default class FootnoteLinkCommand extends Command {
         // When a collapsed selection is inside text with the "footnotelink" attribute, update its text and body.
         if (this.value) {
           const { end: positionAfter } = model.insertContent(
-            writer.createText(span, { footnotelink: body }),
+            writer.createText(span, { footnotelink: {title, body} }),
             this.value.range
           )
           // Put the selection at the end of the inserted footnotelink.
@@ -89,7 +91,7 @@ export default class FootnoteLinkCommand extends Command {
           const attributes = toMap(selection.getAttributes())
 
           // Put the new attribute to the map of attributes.
-          attributes.set('footnotelink', body)
+          attributes.set('footnotelink', {title, body})
 
           // Inject the new text node with the footnotelink text with all selection attributes.
           const { end: positionAfter } = model.insertContent(writer.createText(span, attributes), firstPosition)
@@ -108,7 +110,7 @@ export default class FootnoteLinkCommand extends Command {
         const ranges = model.schema.getValidRanges(selection.getRanges(), 'footnotelink')
 
         for (const range of ranges) {
-          writer.setAttribute('footnotelink', body, range)
+          writer.setAttribute('footnotelink', {title, body}, range)
         }
       }
     })

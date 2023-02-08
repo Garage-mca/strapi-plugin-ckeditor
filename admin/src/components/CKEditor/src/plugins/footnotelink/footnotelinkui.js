@@ -42,6 +42,7 @@ export default class FootnoteLinkUI extends Plugin {
       // Grab values from the footnotelink and body input fields.
       const value = {
         span: formView.footnotelinkInputView.fieldView.element.value,
+        title: formView.titleInputView.fieldView.element.value,
         body: formView.bodyInputView.fieldView.element.value
       }
       editor.execute('addFootnoteLink', value)
@@ -83,6 +84,7 @@ export default class FootnoteLinkUI extends Plugin {
     // Fill the form using the state (value) of the command.
     if (commandValue) {
       this.formView.footnotelinkInputView.fieldView.value = commandValue.span
+      this.formView.titleInputView.fieldView.value = commandValue.title
       this.formView.bodyInputView.fieldView.value = commandValue.body
     }
     // If the command has no value, put the currently selected text (not collapsed)
@@ -91,6 +93,7 @@ export default class FootnoteLinkUI extends Plugin {
       const selectedText = getRangeText(selection.getFirstRange())
 
       this.formView.footnotelinkInputView.fieldView.value = selectedText
+      this.formView.titleInputView.fieldView.value = ''
       this.formView.bodyInputView.fieldView.value = ''
     }
 
@@ -100,6 +103,7 @@ export default class FootnoteLinkUI extends Plugin {
   _hideUI() {
     // Clear the input field values and reset the form.
     this.formView.footnotelinkInputView.fieldView.value = ''
+    this.formView.titleInputView.fieldView.value = ''
     this.formView.bodyInputView.fieldView.value = ''
     this.formView.element.reset()
 
